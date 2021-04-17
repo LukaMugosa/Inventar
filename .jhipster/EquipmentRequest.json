@@ -1,0 +1,52 @@
+{
+  "name": "EquipmentRequest",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "EquipmentRequestStatus",
+      "fieldValues": "WAITING_FOR_HR,WAITING_FOR_IT,APPROVED,REFUSED",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "equipment",
+      "otherEntityRelationshipName": "equipmentRequest",
+      "relationshipName": "equipment",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "equipmentRequests",
+      "relationshipName": "employee",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210417220557",
+  "entityTableName": "equipment_request",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,165 @@
+entity Tenant {
+	name String required
+    address String required
+    phoneNumber String required
+    active Boolean required
+    createdAt Instant
+    updatedAt Instant
+}
+
+entity Supplier {
+	name String required
+    phoneNumber String required
+	email String required
+    address String required
+    createdAt Instant
+    updatedAt Instant
+}
+
+entity Repairer {
+	name String required
+    phoneNumber String required
+	email String required
+    address String required
+    createdAt Instant
+    updatedAt Instant
+}
+
+entity Employee {
+	firstName String required
+    lastName String required
+    fullName String required
+    phoneNumber String required
+    profileImage ImageBlob
+	createdAt Instant
+    updatedAt Instant
+}
+
+entity Sector {
+	name String required
+    createdAt Instant
+    updatedAt Instant
+}
+
+entity Position {
+	name String required
+    createdAt Instant
+    updatedAt Instant
+}
+
+entity Manufacturer {
+	name String required
+    createdAt Instant
+    updatedAt Instant
+}
+
+entity EquipmentCategory{
+	name String required
+    createdAt Instant
+    updatedAt Instant
+}
+
+entity Equipment {
+	name String required
+    description String required
+    stock Integer required
+    pricePerUnit Double required
+    createdAt Instant
+    updatedAt Instant
+}
+
+enum EquipmentStatus {
+	IN_USE
+    ON_REPAIRMENT
+}
+
+entity EquipmentEmployee {
+	dateOfRent Instant required
+    active Boolean required
+    status EquipmentStatus required
+}
+
+entity ProblemReportCategory {
+	name String required
+    createdAt Instant
+    updatedAt Instant
+}
+
+entity ProblemReport {
+	title String required
+    description String required
+    image ImageBlob
+    createdAt String
+    updatedAt String
+}
+
+enum EquipmentRequestStatus {
+	WAITING_FOR_HR,
+    WAITING_FOR_IT,
+    APPROVED,
+    REFUSED
+}
+
+entity EquipmentRequest {
+	title String required
+    description String required
+    status EquipmentRequestStatus required
+    createdAt Instant
+}
+
+entity EquipmentService {
+	title String required
+    description String required
+    dateSent Instant required
+    eta Instant required
+}
+
+entity Notification {
+	title String required
+    description String required
+    createdAt Instant
+}
+
+entity EquipmentImage{
+	image ImageBlob required
+}
+
+relationship OneToOne {
+	Employee{user} to User
+}
+relationship OneToMany {
+	Tenant{employees} to Employee{tenant},
+    Manufacturer{equipments} to Equipment{manufacturer},
+    ProblemReportCategory{problems} to ProblemReport{problemReportCategory},
+    EquipmentCategory{equipments} to Equipment{equipmentCategory},
+	Equipment to EquipmentRequest{equipment},
+    Employee{equipmentRequests} to EquipmentRequest{employee},
+    Employee{problemReports} to ProblemReport{employee},
+    Employee{equipmentService} to EquipmentService{employee},
+    Equipment{equipmentService} to EquipmentService{equipment},
+    Repairer{equipmentService} to EquipmentService{repairer},
+ 	Sector{positions} to Position{sector},
+    Position{employees} to Employee{position},
+    Supplier{equipments} to Equipment{suplier},
+    Equipment{equipmentEmployees} to EquipmentEmployee{equipment},
+    Employee{equipmentEmployees} to EquipmentEmployee{employee},
+    Equipment{images} to EquipmentImage{equipment}
+
+}
+relationship ManyToOne {
+	Notification to Employee{createdNotifications},
+    Notification to Employee{receivedNotifications},
+}
+
+paginate all with pagination
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceClass
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
+
+filter *

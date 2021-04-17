@@ -1,0 +1,59 @@
+{
+  "name": "EquipmentService",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateSent",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "eta",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "equipmentService",
+      "relationshipName": "employee",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "equipment",
+      "otherEntityRelationshipName": "equipmentService",
+      "relationshipName": "equipment",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "repairer",
+      "otherEntityRelationshipName": "equipmentService",
+      "relationshipName": "repairer",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210417220657",
+  "entityTableName": "equipment_service",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

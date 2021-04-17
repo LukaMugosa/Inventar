@@ -1,0 +1,31 @@
+{
+  "name": "EquipmentImage",
+  "fields": [
+    {
+      "fieldName": "image",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "equipment",
+      "otherEntityRelationshipName": "images",
+      "relationshipName": "equipment",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210417220857",
+  "entityTableName": "equipment_image",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,37 @@
+{
+  "name": "EquipmentCategory",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "equipment",
+      "otherEntityRelationshipName": "equipmentCategory",
+      "relationshipName": "equipments"
+    }
+  ],
+  "changelogDate": "20210417220057",
+  "entityTableName": "equipment_category",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

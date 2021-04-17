@@ -1,0 +1,48 @@
+{
+  "name": "EquipmentEmployee",
+  "fields": [
+    {
+      "fieldName": "dateOfRent",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "active",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "EquipmentStatus",
+      "fieldValues": "IN_USE,ON_REPAIRMENT",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "equipment",
+      "otherEntityRelationshipName": "equipmentEmployees",
+      "relationshipName": "equipment",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "equipmentEmployees",
+      "relationshipName": "employee",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210417220257",
+  "entityTableName": "equipment_employee",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

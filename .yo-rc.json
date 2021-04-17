@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "me.amplitudo.inventar",
+      "nativeLanguage": "sr"
+    },
+    "jhipsterVersion": "6.10.5",
+    "applicationType": "monolith",
+    "baseName": "inventar",
+    "packageName": "me.amplitudo.inventar",
+    "packageFolder": "me/amplitudo/inventar",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NmE2Y2I5YmEwOTM1NGEzNGQxYjJjZmM0ZjUzMmEwOTdjMDJlZDAzODIxMWI5YzZiY2EwMDU2NGUzNzkxN2I1Nzk2YzY2YWU2ZTE3OTBjNWVkYjljYTE0ZDk5Mjk4MTA3NTE4ZDhkMzZiYTRiYTU5NzJmYzg3ZGQzNjU2NjUwMDQ=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "skipClient": true,
+    "creationTimestamp": 1618695974567,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "sr",
+    "languages": ["sr", "en"],
+    "blueprints": []
+  }
+}

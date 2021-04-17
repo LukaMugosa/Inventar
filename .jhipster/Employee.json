@@ -1,0 +1,109 @@
+{
+  "name": "Employee",
+  "fields": [
+    {
+      "fieldName": "firstName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "fullName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "phoneNumber",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "profileImage",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "employee",
+      "relationshipName": "user",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "equipmentRequest",
+      "otherEntityRelationshipName": "employee",
+      "relationshipName": "equipmentRequests"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "problemReport",
+      "otherEntityRelationshipName": "employee",
+      "relationshipName": "problemReports"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "equipmentService",
+      "otherEntityRelationshipName": "employee",
+      "relationshipName": "equipmentService"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "equipmentEmployee",
+      "otherEntityRelationshipName": "employee",
+      "relationshipName": "equipmentEmployees"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "tenant",
+      "otherEntityRelationshipName": "employees",
+      "relationshipName": "tenant",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "position",
+      "otherEntityRelationshipName": "employees",
+      "relationshipName": "position",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "notification",
+      "otherEntityRelationshipName": "employee",
+      "relationshipName": "createdNotifications"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "notification",
+      "otherEntityRelationshipName": "employee",
+      "relationshipName": "receivedNotifications"
+    }
+  ],
+  "changelogDate": "20210417215657",
+  "entityTableName": "employee",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

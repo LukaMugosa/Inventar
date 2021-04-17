@@ -1,0 +1,37 @@
+{
+  "name": "ProblemReportCategory",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "problemReport",
+      "otherEntityRelationshipName": "problemReportCategory",
+      "relationshipName": "problems"
+    }
+  ],
+  "changelogDate": "20210417220357",
+  "entityTableName": "problem_report_category",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

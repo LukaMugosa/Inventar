@@ -1,0 +1,55 @@
+{
+  "name": "ProblemReport",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "image",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "createdAt",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updatedAt",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "problemReportCategory",
+      "otherEntityRelationshipName": "problems",
+      "relationshipName": "problemReportCategory",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "employee",
+      "otherEntityRelationshipName": "problemReports",
+      "relationshipName": "employee",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210417220457",
+  "entityTableName": "problem_report",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
