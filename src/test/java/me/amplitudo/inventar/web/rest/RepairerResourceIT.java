@@ -2,7 +2,7 @@ package me.amplitudo.inventar.web.rest;
 
 import me.amplitudo.inventar.InventarApp;
 import me.amplitudo.inventar.domain.Repairer;
-import me.amplitudo.inventar.domain.EquipmentService;
+import me.amplitudo.inventar.domain.EquipmentServicing;
 import me.amplitudo.inventar.repository.RepairerRepository;
 import me.amplitudo.inventar.service.RepairerService;
 import me.amplitudo.inventar.service.dto.RepairerDTO;
@@ -713,21 +713,21 @@ public class RepairerResourceIT {
 
     @Test
     @Transactional
-    public void getAllRepairersByEquipmentServiceIsEqualToSomething() throws Exception {
+    public void getAllRepairersByEquipmentServicingIsEqualToSomething() throws Exception {
         // Initialize the database
         repairerRepository.saveAndFlush(repairer);
-        EquipmentService equipmentService = EquipmentServiceResourceIT.createEntity(em);
-        em.persist(equipmentService);
+        EquipmentServicing equipmentServicing = EquipmentServicingResourceIT.createEntity(em);
+        em.persist(equipmentServicing);
         em.flush();
-        repairer.addEquipmentService(equipmentService);
+        repairer.addEquipmentServicing(equipmentServicing);
         repairerRepository.saveAndFlush(repairer);
-        Long equipmentServiceId = equipmentService.getId();
+        Long equipmentServicingId = equipmentServicing.getId();
 
-        // Get all the repairerList where equipmentService equals to equipmentServiceId
-        defaultRepairerShouldBeFound("equipmentServiceId.equals=" + equipmentServiceId);
+        // Get all the repairerList where equipmentServicing equals to equipmentServicingId
+        defaultRepairerShouldBeFound("equipmentServicingId.equals=" + equipmentServicingId);
 
-        // Get all the repairerList where equipmentService equals to equipmentServiceId + 1
-        defaultRepairerShouldNotBeFound("equipmentServiceId.equals=" + (equipmentServiceId + 1));
+        // Get all the repairerList where equipmentServicing equals to equipmentServicingId + 1
+        defaultRepairerShouldNotBeFound("equipmentServicingId.equals=" + (equipmentServicingId + 1));
     }
 
     /**

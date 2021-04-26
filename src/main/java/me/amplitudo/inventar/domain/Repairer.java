@@ -49,7 +49,7 @@ public class Repairer implements Serializable {
 
     @OneToMany(mappedBy = "repairer")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<EquipmentService> equipmentServices = new HashSet<>();
+    private Set<EquipmentServicing> equipmentServicings = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -138,29 +138,29 @@ public class Repairer implements Serializable {
         this.updatedAt = updatedAt;
     }
 
-    public Set<EquipmentService> getEquipmentServices() {
-        return equipmentServices;
+    public Set<EquipmentServicing> getEquipmentServicings() {
+        return equipmentServicings;
     }
 
-    public Repairer equipmentServices(Set<EquipmentService> equipmentServices) {
-        this.equipmentServices = equipmentServices;
+    public Repairer equipmentServicings(Set<EquipmentServicing> equipmentServicings) {
+        this.equipmentServicings = equipmentServicings;
         return this;
     }
 
-    public Repairer addEquipmentService(EquipmentService equipmentService) {
-        this.equipmentServices.add(equipmentService);
-        equipmentService.setRepairer(this);
+    public Repairer addEquipmentServicing(EquipmentServicing equipmentServicing) {
+        this.equipmentServicings.add(equipmentServicing);
+        equipmentServicing.setRepairer(this);
         return this;
     }
 
-    public Repairer removeEquipmentService(EquipmentService equipmentService) {
-        this.equipmentServices.remove(equipmentService);
-        equipmentService.setRepairer(null);
+    public Repairer removeEquipmentServicing(EquipmentServicing equipmentServicing) {
+        this.equipmentServicings.remove(equipmentServicing);
+        equipmentServicing.setRepairer(null);
         return this;
     }
 
-    public void setEquipmentServices(Set<EquipmentService> equipmentServices) {
-        this.equipmentServices = equipmentServices;
+    public void setEquipmentServicings(Set<EquipmentServicing> equipmentServicings) {
+        this.equipmentServicings = equipmentServicings;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

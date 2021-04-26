@@ -13,8 +13,8 @@ import org.mapstruct.*;
 public interface RepairerMapper extends EntityMapper<RepairerDTO, Repairer> {
 
 
-    @Mapping(target = "equipmentServices", ignore = true)
-    @Mapping(target = "removeEquipmentService", ignore = true)
+    @Mapping(target = "equipmentServicings", ignore = true)
+    @Mapping(target = "removeEquipmentServicing", ignore = true)
     Repairer toEntity(RepairerDTO repairerDTO);
 
     default Repairer fromId(Long id) {

@@ -82,6 +82,10 @@ public class CacheConfiguration {
             createCache(cm, me.amplitudo.inventar.domain.EquipmentService.class.getName());
             createCache(cm, me.amplitudo.inventar.domain.Notification.class.getName());
             createCache(cm, me.amplitudo.inventar.domain.EquipmentImage.class.getName());
+            createCache(cm, me.amplitudo.inventar.domain.Repairer.class.getName() + ".equipmentServicings");
+            createCache(cm, me.amplitudo.inventar.domain.Employee.class.getName() + ".equipmentServicings");
+            createCache(cm, me.amplitudo.inventar.domain.Equipment.class.getName() + ".equipmentServicings");
+            createCache(cm, me.amplitudo.inventar.domain.EquipmentServicing.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

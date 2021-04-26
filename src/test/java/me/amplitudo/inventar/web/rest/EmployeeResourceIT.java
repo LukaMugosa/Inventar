@@ -5,7 +5,7 @@ import me.amplitudo.inventar.domain.Employee;
 import me.amplitudo.inventar.domain.User;
 import me.amplitudo.inventar.domain.EquipmentRequest;
 import me.amplitudo.inventar.domain.ProblemReport;
-import me.amplitudo.inventar.domain.EquipmentService;
+import me.amplitudo.inventar.domain.EquipmentServicing;
 import me.amplitudo.inventar.domain.EquipmentEmployee;
 import me.amplitudo.inventar.domain.Tenant;
 import me.amplitudo.inventar.domain.Position;
@@ -796,21 +796,21 @@ public class EmployeeResourceIT {
 
     @Test
     @Transactional
-    public void getAllEmployeesByEquipmentServiceIsEqualToSomething() throws Exception {
+    public void getAllEmployeesByEquipmentServicingIsEqualToSomething() throws Exception {
         // Initialize the database
         employeeRepository.saveAndFlush(employee);
-        EquipmentService equipmentService = EquipmentServiceResourceIT.createEntity(em);
-        em.persist(equipmentService);
+        EquipmentServicing equipmentServicing = EquipmentServicingResourceIT.createEntity(em);
+        em.persist(equipmentServicing);
         em.flush();
-        employee.addEquipmentService(equipmentService);
+        employee.addEquipmentServicing(equipmentServicing);
         employeeRepository.saveAndFlush(employee);
-        Long equipmentServiceId = equipmentService.getId();
+        Long equipmentServicingId = equipmentServicing.getId();
 
-        // Get all the employeeList where equipmentService equals to equipmentServiceId
-        defaultEmployeeShouldBeFound("equipmentServiceId.equals=" + equipmentServiceId);
+        // Get all the employeeList where equipmentServicing equals to equipmentServicingId
+        defaultEmployeeShouldBeFound("equipmentServicingId.equals=" + equipmentServicingId);
 
-        // Get all the employeeList where equipmentService equals to equipmentServiceId + 1
-        defaultEmployeeShouldNotBeFound("equipmentServiceId.equals=" + (equipmentServiceId + 1));
+        // Get all the employeeList where equipmentServicing equals to equipmentServicingId + 1
+        defaultEmployeeShouldNotBeFound("equipmentServicingId.equals=" + (equipmentServicingId + 1));
     }
 
 

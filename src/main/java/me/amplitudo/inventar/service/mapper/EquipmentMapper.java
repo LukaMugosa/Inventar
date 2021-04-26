@@ -19,8 +19,8 @@ public interface EquipmentMapper extends EntityMapper<EquipmentDTO, Equipment> {
 
     @Mapping(target = "equipmentRequests", ignore = true)
     @Mapping(target = "removeEquipmentRequest", ignore = true)
-    @Mapping(target = "equipmentServices", ignore = true)
-    @Mapping(target = "removeEquipmentService", ignore = true)
+    @Mapping(target = "equipmentServicings", ignore = true)
+    @Mapping(target = "removeEquipmentServicing", ignore = true)
     @Mapping(target = "equipmentEmployees", ignore = true)
     @Mapping(target = "removeEquipmentEmployees", ignore = true)
     @Mapping(target = "images", ignore = true)

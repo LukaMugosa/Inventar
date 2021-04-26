@@ -69,7 +69,7 @@ public class Employee implements Serializable {
 
     @OneToMany(mappedBy = "employee")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<EquipmentService> equipmentServices = new HashSet<>();
+    private Set<EquipmentServicing> equipmentServicings = new HashSet<>();
 
     @OneToMany(mappedBy = "employee")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -267,29 +267,29 @@ public class Employee implements Serializable {
         this.problemReports = problemReports;
     }
 
-    public Set<EquipmentService> getEquipmentServices() {
-        return equipmentServices;
+    public Set<EquipmentServicing> getEquipmentServicings() {
+        return equipmentServicings;
     }
 
-    public Employee equipmentServices(Set<EquipmentService> equipmentServices) {
-        this.equipmentServices = equipmentServices;
+    public Employee equipmentServicings(Set<EquipmentServicing> equipmentServicings) {
+        this.equipmentServicings = equipmentServicings;
         return this;
     }
 
-    public Employee addEquipmentService(EquipmentService equipmentService) {
-        this.equipmentServices.add(equipmentService);
-        equipmentService.setEmployee(this);
+    public Employee addEquipmentServicing(EquipmentServicing equipmentServicing) {
+        this.equipmentServicings.add(equipmentServicing);
+        equipmentServicing.setEmployee(this);
         return this;
     }
 
-    public Employee removeEquipmentService(EquipmentService equipmentService) {
-        this.equipmentServices.remove(equipmentService);
-        equipmentService.setEmployee(null);
+    public Employee removeEquipmentServicing(EquipmentServicing equipmentServicing) {
+        this.equipmentServicings.remove(equipmentServicing);
+        equipmentServicing.setEmployee(null);
         return this;
     }
 
-    public void setEquipmentServices(Set<EquipmentService> equipmentServices) {
-        this.equipmentServices = equipmentServices;
+    public void setEquipmentServicings(Set<EquipmentServicing> equipmentServicings) {
+        this.equipmentServicings = equipmentServicings;
     }
 
     public Set<EquipmentEmployee> getEquipmentEmployees() {
@@ -351,6 +351,19 @@ public class Employee implements Serializable {
         this.createdNotifications = notifications;
         return this;
     }
+
+    public Employee addCreatedNotifications(Notification notification) {
+        this.createdNotifications.add(notification);
+        notification.setEmployee(this);
+        return this;
+    }
+
+    public Employee removeCreatedNotifications(Notification notification) {
+        this.createdNotifications.remove(notification);
+        notification.setEmployee(null);
+        return this;
+    }
+
     public void setCreatedNotifications(Set<Notification> notifications) {
         this.createdNotifications = notifications;
     }
@@ -363,6 +376,19 @@ public class Employee implements Serializable {
         this.receivedNotifications = notifications;
         return this;
     }
+
+    public Employee addReceivedNotifications(Notification notification) {
+        this.receivedNotifications.add(notification);
+        notification.setEmployee(this);
+        return this;
+    }
+
+    public Employee removeReceivedNotifications(Notification notification) {
+        this.receivedNotifications.remove(notification);
+        notification.setEmployee(null);
+        return this;
+    }
+
     public void setReceivedNotifications(Set<Notification> notifications) {
         this.receivedNotifications = notifications;
     }

@@ -54,7 +54,7 @@ public class Equipment implements Serializable {
 
     @OneToMany(mappedBy = "equipment")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<EquipmentService> equipmentServices = new HashSet<>();
+    private Set<EquipmentServicing> equipmentServicings = new HashSet<>();
 
     @OneToMany(mappedBy = "equipment")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
@@ -188,29 +188,29 @@ public class Equipment implements Serializable {
         this.equipmentRequests = equipmentRequests;
     }
 
-    public Set<EquipmentService> getEquipmentServices() {
-        return equipmentServices;
+    public Set<EquipmentServicing> getEquipmentServicings() {
+        return equipmentServicings;
     }
 
-    public Equipment equipmentServices(Set<EquipmentService> equipmentServices) {
-        this.equipmentServices = equipmentServices;
+    public Equipment equipmentServicings(Set<EquipmentServicing> equipmentServicings) {
+        this.equipmentServicings = equipmentServicings;
         return this;
     }
 
-    public Equipment addEquipmentService(EquipmentService equipmentService) {
-        this.equipmentServices.add(equipmentService);
-        equipmentService.setEquipment(this);
+    public Equipment addEquipmentServicing(EquipmentServicing equipmentServicing) {
+        this.equipmentServicings.add(equipmentServicing);
+        equipmentServicing.setEquipment(this);
         return this;
     }
 
-    public Equipment removeEquipmentService(EquipmentService equipmentService) {
-        this.equipmentServices.remove(equipmentService);
-        equipmentService.setEquipment(null);
+    public Equipment removeEquipmentServicing(EquipmentServicing equipmentServicing) {
+        this.equipmentServicings.remove(equipmentServicing);
+        equipmentServicing.setEquipment(null);
         return this;
     }
 
-    public void setEquipmentServices(Set<EquipmentService> equipmentServices) {
-        this.equipmentServices = equipmentServices;
+    public void setEquipmentServicings(Set<EquipmentServicing> equipmentServicings) {
+        this.equipmentServicings = equipmentServicings;
     }
 
     public Set<EquipmentEmployee> getEquipmentEmployees() {

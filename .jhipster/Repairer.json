@@ -33,9 +33,9 @@
   "relationships": [
     {
       "relationshipType": "one-to-many",
-      "otherEntityName": "equipmentService",
+      "otherEntityName": "equipmentServicing",
       "otherEntityRelationshipName": "repairer",
-      "relationshipName": "equipmentService"
+      "relationshipName": "equipmentServicing"
     }
   ],
   "changelogDate": "20210417215557",

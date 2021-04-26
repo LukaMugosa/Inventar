@@ -58,9 +58,9 @@
     },
     {
       "relationshipType": "one-to-many",
-      "otherEntityName": "equipmentService",
+      "otherEntityName": "equipmentServicing",
       "otherEntityRelationshipName": "employee",
-      "relationshipName": "equipmentService"
+      "relationshipName": "equipmentServicing"
     },
     {
       "relationshipType": "one-to-many",

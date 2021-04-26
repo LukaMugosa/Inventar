@@ -109,9 +109,9 @@ public class RepairerQueryService extends QueryService<Repairer> {
             if (criteria.getUpdatedAt() != null) {
                 specification = specification.and(buildRangeSpecification(criteria.getUpdatedAt(), Repairer_.updatedAt));
             }
-            if (criteria.getEquipmentServiceId() != null) {
-                specification = specification.and(buildSpecification(criteria.getEquipmentServiceId(),
-                    root -> root.join(Repairer_.equipmentServices, JoinType.LEFT).get(EquipmentService_.id)));
+            if (criteria.getEquipmentServicingId() != null) {
+                specification = specification.and(buildSpecification(criteria.getEquipmentServicingId(),
+                    root -> root.join(Repairer_.equipmentServicings, JoinType.LEFT).get(EquipmentServicing_.id)));
             }
         }
         return specification;

@@ -107,7 +107,7 @@ entity EquipmentRequest {
     createdAt Instant
 }
 
-entity EquipmentService {
+entity EquipmentServicing {
 	title String required
     description String required
     dateSent Instant required
@@ -135,9 +135,9 @@ relationship OneToMany {
 	Equipment to EquipmentRequest{equipment},
     Employee{equipmentRequests} to EquipmentRequest{employee},
     Employee{problemReports} to ProblemReport{employee},
-    Employee{equipmentService} to EquipmentService{employee},
-    Equipment{equipmentService} to EquipmentService{equipment},
-    Repairer{equipmentService} to EquipmentService{repairer},
+    Employee{equipmentServicing} to EquipmentServicing{employee},
+    Equipment{equipmentServicing} to EquipmentServicing{equipment},
+    Repairer{equipmentServicing} to EquipmentServicing{repairer},
  	Sector{positions} to Position{sector},
     Position{employees} to Employee{position},
     Supplier{equipments} to Equipment{suplier},

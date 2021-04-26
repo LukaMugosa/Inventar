@@ -3,7 +3,7 @@ package me.amplitudo.inventar.web.rest;
 import me.amplitudo.inventar.InventarApp;
 import me.amplitudo.inventar.domain.Equipment;
 import me.amplitudo.inventar.domain.EquipmentRequest;
-import me.amplitudo.inventar.domain.EquipmentService;
+import me.amplitudo.inventar.domain.EquipmentServicing;
 import me.amplitudo.inventar.domain.EquipmentEmployee;
 import me.amplitudo.inventar.domain.EquipmentImage;
 import me.amplitudo.inventar.domain.Manufacturer;
@@ -795,21 +795,21 @@ public class EquipmentResourceIT {
 
     @Test
     @Transactional
-    public void getAllEquipmentByEquipmentServiceIsEqualToSomething() throws Exception {
+    public void getAllEquipmentByEquipmentServicingIsEqualToSomething() throws Exception {
         // Initialize the database
         equipmentRepository.saveAndFlush(equipment);
-        EquipmentService equipmentService = EquipmentServiceResourceIT.createEntity(em);
-        em.persist(equipmentService);
+        EquipmentServicing equipmentServicing = EquipmentServicingResourceIT.createEntity(em);
+        em.persist(equipmentServicing);
         em.flush();
-        equipment.addEquipmentService(equipmentService);
+        equipment.addEquipmentServicing(equipmentServicing);
         equipmentRepository.saveAndFlush(equipment);
-        Long equipmentServiceId = equipmentService.getId();
+        Long equipmentServicingId = equipmentServicing.getId();
 
-        // Get all the equipmentList where equipmentService equals to equipmentServiceId
-        defaultEquipmentShouldBeFound("equipmentServiceId.equals=" + equipmentServiceId);
+        // Get all the equipmentList where equipmentServicing equals to equipmentServicingId
+        defaultEquipmentShouldBeFound("equipmentServicingId.equals=" + equipmentServicingId);
 
-        // Get all the equipmentList where equipmentService equals to equipmentServiceId + 1
-        defaultEquipmentShouldNotBeFound("equipmentServiceId.equals=" + (equipmentServiceId + 1));
+        // Get all the equipmentList where equipmentServicing equals to equipmentServicingId + 1
+        defaultEquipmentShouldNotBeFound("equipmentServicingId.equals=" + (equipmentServicingId + 1));
     }
 
 

@@ -22,14 +22,16 @@ public interface EmployeeMapper extends EntityMapper<EmployeeDTO, Employee> {
     @Mapping(target = "removeEquipmentRequests", ignore = true)
     @Mapping(target = "problemReports", ignore = true)
     @Mapping(target = "removeProblemReports", ignore = true)
-    @Mapping(target = "equipmentServices", ignore = true)
-    @Mapping(target = "removeEquipmentService", ignore = true)
+    @Mapping(target = "equipmentServicings", ignore = true)
+    @Mapping(target = "removeEquipmentServicing", ignore = true)
     @Mapping(target = "equipmentEmployees", ignore = true)
     @Mapping(target = "removeEquipmentEmployees", ignore = true)
     @Mapping(source = "tenantId", target = "tenant")
     @Mapping(source = "positionId", target = "position")
     @Mapping(target = "createdNotifications", ignore = true)
+    @Mapping(target = "removeCreatedNotifications", ignore = true)
     @Mapping(target = "receivedNotifications", ignore = true)
+    @Mapping(target = "removeReceivedNotifications", ignore = true)
     Employee toEntity(EmployeeDTO employeeDTO);
 
     default Employee fromId(Long id) {

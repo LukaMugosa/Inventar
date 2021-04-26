@@ -45,7 +45,7 @@ public class EmployeeCriteria implements Serializable, Criteria {
 
     private LongFilter problemReportsId;
 
-    private LongFilter equipmentServiceId;
+    private LongFilter equipmentServicingId;
 
     private LongFilter equipmentEmployeesId;
 
@@ -71,7 +71,7 @@ public class EmployeeCriteria implements Serializable, Criteria {
         this.userId = other.userId == null ? null : other.userId.copy();
         this.equipmentRequestsId = other.equipmentRequestsId == null ? null : other.equipmentRequestsId.copy();
         this.problemReportsId = other.problemReportsId == null ? null : other.problemReportsId.copy();
-        this.equipmentServiceId = other.equipmentServiceId == null ? null : other.equipmentServiceId.copy();
+        this.equipmentServicingId = other.equipmentServicingId == null ? null : other.equipmentServicingId.copy();
         this.equipmentEmployeesId = other.equipmentEmployeesId == null ? null : other.equipmentEmployeesId.copy();
         this.tenantId = other.tenantId == null ? null : other.tenantId.copy();
         this.positionId = other.positionId == null ? null : other.positionId.copy();
@@ -164,12 +164,12 @@ public class EmployeeCriteria implements Serializable, Criteria {
         this.problemReportsId = problemReportsId;
     }
 
-    public LongFilter getEquipmentServiceId() {
-        return equipmentServiceId;
+    public LongFilter getEquipmentServicingId() {
+        return equipmentServicingId;
     }
 
-    public void setEquipmentServiceId(LongFilter equipmentServiceId) {
-        this.equipmentServiceId = equipmentServiceId;
+    public void setEquipmentServicingId(LongFilter equipmentServicingId) {
+        this.equipmentServicingId = equipmentServicingId;
     }
 
     public LongFilter getEquipmentEmployeesId() {
@@ -233,7 +233,7 @@ public class EmployeeCriteria implements Serializable, Criteria {
             Objects.equals(userId, that.userId) &&
             Objects.equals(equipmentRequestsId, that.equipmentRequestsId) &&
             Objects.equals(problemReportsId, that.problemReportsId) &&
-            Objects.equals(equipmentServiceId, that.equipmentServiceId) &&
+            Objects.equals(equipmentServicingId, that.equipmentServicingId) &&
             Objects.equals(equipmentEmployeesId, that.equipmentEmployeesId) &&
             Objects.equals(tenantId, that.tenantId) &&
             Objects.equals(positionId, that.positionId) &&
@@ -254,7 +254,7 @@ public class EmployeeCriteria implements Serializable, Criteria {
         userId,
         equipmentRequestsId,
         problemReportsId,
-        equipmentServiceId,
+        equipmentServicingId,
         equipmentEmployeesId,
         tenantId,
         positionId,
@@ -277,7 +277,7 @@ public class EmployeeCriteria implements Serializable, Criteria {
                 (userId != null ? "userId=" + userId + ", " : "") +
                 (equipmentRequestsId != null ? "equipmentRequestsId=" + equipmentRequestsId + ", " : "") +
                 (problemReportsId != null ? "problemReportsId=" + problemReportsId + ", " : "") +
-                (equipmentServiceId != null ? "equipmentServiceId=" + equipmentServiceId + ", " : "") +
+                (equipmentServicingId != null ? "equipmentServicingId=" + equipmentServicingId + ", " : "") +
                 (equipmentEmployeesId != null ? "equipmentEmployeesId=" + equipmentEmployeesId + ", " : "") +
                 (tenantId != null ? "tenantId=" + tenantId + ", " : "") +
                 (positionId != null ? "positionId=" + positionId + ", " : "") +

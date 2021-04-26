@@ -1,5 +1,5 @@
 {
-  "name": "EquipmentService",
+  "name": "EquipmentServicing",
   "fields": [
     {
       "fieldName": "title",
@@ -26,27 +26,27 @@
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "employee",
-      "otherEntityRelationshipName": "equipmentService",
+      "otherEntityRelationshipName": "equipmentServicing",
       "relationshipName": "employee",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "equipment",
-      "otherEntityRelationshipName": "equipmentService",
+      "otherEntityRelationshipName": "equipmentServicing",
       "relationshipName": "equipment",
       "otherEntityField": "id"
     },
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "repairer",
-      "otherEntityRelationshipName": "equipmentService",
+      "otherEntityRelationshipName": "equipmentServicing",
       "relationshipName": "repairer",
       "otherEntityField": "id"
     }
   ],
   "changelogDate": "20210417220657",
-  "entityTableName": "equipment_service",
+  "entityTableName": "equipment_servicing",
   "dto": "mapstruct",
   "pagination": "pagination",
   "service": "serviceClass",

@@ -39,7 +39,7 @@ public class RepairerCriteria implements Serializable, Criteria {
 
     private InstantFilter updatedAt;
 
-    private LongFilter equipmentServiceId;
+    private LongFilter equipmentServicingId;
 
     public RepairerCriteria() {
     }
@@ -52,7 +52,7 @@ public class RepairerCriteria implements Serializable, Criteria {
         this.address = other.address == null ? null : other.address.copy();
         this.createdAt = other.createdAt == null ? null : other.createdAt.copy();
         this.updatedAt = other.updatedAt == null ? null : other.updatedAt.copy();
-        this.equipmentServiceId = other.equipmentServiceId == null ? null : other.equipmentServiceId.copy();
+        this.equipmentServicingId = other.equipmentServicingId == null ? null : other.equipmentServicingId.copy();
     }
 
     @Override
@@ -116,12 +116,12 @@ public class RepairerCriteria implements Serializable, Criteria {
         this.updatedAt = updatedAt;
     }
 
-    public LongFilter getEquipmentServiceId() {
-        return equipmentServiceId;
+    public LongFilter getEquipmentServicingId() {
+        return equipmentServicingId;
     }
 
-    public void setEquipmentServiceId(LongFilter equipmentServiceId) {
-        this.equipmentServiceId = equipmentServiceId;
+    public void setEquipmentServicingId(LongFilter equipmentServicingId) {
+        this.equipmentServicingId = equipmentServicingId;
     }
 
 
@@ -142,7 +142,7 @@ public class RepairerCriteria implements Serializable, Criteria {
             Objects.equals(address, that.address) &&
             Objects.equals(createdAt, that.createdAt) &&
             Objects.equals(updatedAt, that.updatedAt) &&
-            Objects.equals(equipmentServiceId, that.equipmentServiceId);
+            Objects.equals(equipmentServicingId, that.equipmentServicingId);
     }
 
     @Override
@@ -155,7 +155,7 @@ public class RepairerCriteria implements Serializable, Criteria {
         address,
         createdAt,
         updatedAt,
-        equipmentServiceId
+        equipmentServicingId
         );
     }
 
@@ -170,7 +170,7 @@ public class RepairerCriteria implements Serializable, Criteria {
                 (address != null ? "address=" + address + ", " : "") +
                 (createdAt != null ? "createdAt=" + createdAt + ", " : "") +
                 (updatedAt != null ? "updatedAt=" + updatedAt + ", " : "") +
-                (equipmentServiceId != null ? "equipmentServiceId=" + equipmentServiceId + ", " : "") +
+                (equipmentServicingId != null ? "equipmentServicingId=" + equipmentServicingId + ", " : "") +
             "}";
     }
 

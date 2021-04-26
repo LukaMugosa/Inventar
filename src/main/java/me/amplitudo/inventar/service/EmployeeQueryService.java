@@ -121,9 +121,9 @@ public class EmployeeQueryService extends QueryService<Employee> {
                 specification = specification.and(buildSpecification(criteria.getProblemReportsId(),
                     root -> root.join(Employee_.problemReports, JoinType.LEFT).get(ProblemReport_.id)));
             }
-            if (criteria.getEquipmentServiceId() != null) {
-                specification = specification.and(buildSpecification(criteria.getEquipmentServiceId(),
-                    root -> root.join(Employee_.equipmentServices, JoinType.LEFT).get(EquipmentService_.id)));
+            if (criteria.getEquipmentServicingId() != null) {
+                specification = specification.and(buildSpecification(criteria.getEquipmentServicingId(),
+                    root -> root.join(Employee_.equipmentServicings, JoinType.LEFT).get(EquipmentServicing_.id)));
             }
             if (criteria.getEquipmentEmployeesId() != null) {
                 specification = specification.and(buildSpecification(criteria.getEquipmentEmployeesId(),
