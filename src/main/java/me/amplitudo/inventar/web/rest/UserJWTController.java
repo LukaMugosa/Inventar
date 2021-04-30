@@ -1,7 +1,11 @@
 package me.amplitudo.inventar.web.rest;
 
+import me.amplitudo.inventar.domain.User;
 import me.amplitudo.inventar.security.jwt.JWTFilter;
 import me.amplitudo.inventar.security.jwt.TokenProvider;
+import me.amplitudo.inventar.service.UserService;
+import me.amplitudo.inventar.web.rest.errors.BadActionException;
+import me.amplitudo.inventar.web.rest.errors.ExceptionErrors;
 import me.amplitudo.inventar.web.rest.vm.LoginVM;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -26,11 +30,14 @@ public class UserJWTController {
 
     private final TokenProvider tokenProvider;
 
+    private final UserService userService;
+
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
 
-    public UserJWTController(TokenProvider tokenProvider, AuthenticationManagerBuilder authenticationManagerBuilder) {
+    public UserJWTController(TokenProvider tokenProvider, AuthenticationManagerBuilder authenticationManagerBuilder, UserService userService) {
         this.tokenProvider = tokenProvider;
         this.authenticationManagerBuilder = authenticationManagerBuilder;
+        this.userService = userService;
     }
 
     @PostMapping("/authenticate")
@@ -45,7 +52,15 @@ public class UserJWTController {
         String jwt = tokenProvider.createToken(authentication, rememberMe);
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add(JWTFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
-        return new ResponseEntity<>(new JWTToken(jwt), httpHeaders, HttpStatus.OK);
+
+        User user = userService.getUserWithAuthorities().orElseThrow(
+            () -> new BadActionException(
+                ExceptionErrors.USER_NOT_FOUND.getCode(),
+                ExceptionErrors.USER_NOT_FOUND.getDescription()
+            )
+        );
+
+        return new ResponseEntity<>(new JWTToken(jwt, user), httpHeaders, HttpStatus.OK);
     }
     /**
      * Object to return as body in JWT Authentication.
@@ -53,9 +68,11 @@ public class UserJWTController {
     static class JWTToken {
 
         private String idToken;
+        private User user;
 
-        JWTToken(String idToken) {
+        JWTToken(String idToken, User user) {
             this.idToken = idToken;
+            this.user = user;
         }
 
         @JsonProperty("id_token")
@@ -63,8 +80,15 @@ public class UserJWTController {
             return idToken;
         }
 
+        @JsonProperty("user")
+        User getUser(){return user; }
+
         void setIdToken(String idToken) {
             this.idToken = idToken;
+        }
+
+        void setUser(User user) {
+            this.user = user;
         }
     }
 }
