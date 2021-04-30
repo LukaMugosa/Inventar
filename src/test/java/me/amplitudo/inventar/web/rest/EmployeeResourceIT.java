@@ -9,7 +9,6 @@ import me.amplitudo.inventar.domain.EquipmentServicing;
 import me.amplitudo.inventar.domain.EquipmentEmployee;
 import me.amplitudo.inventar.domain.Tenant;
 import me.amplitudo.inventar.domain.Position;
-import me.amplitudo.inventar.domain.Notification;
 import me.amplitudo.inventar.repository.EmployeeRepository;
 import me.amplitudo.inventar.service.EmployeeService;
 import me.amplitudo.inventar.service.dto.EmployeeDTO;
@@ -871,46 +870,6 @@ public class EmployeeResourceIT {
 
         // Get all the employeeList where position equals to positionId + 1
         defaultEmployeeShouldNotBeFound("positionId.equals=" + (positionId + 1));
-    }
-
-
-    @Test
-    @Transactional
-    public void getAllEmployeesByCreatedNotificationsIsEqualToSomething() throws Exception {
-        // Initialize the database
-        employeeRepository.saveAndFlush(employee);
-        Notification createdNotifications = NotificationResourceIT.createEntity(em);
-        em.persist(createdNotifications);
-        em.flush();
-        employee.addCreatedNotifications(createdNotifications);
-        employeeRepository.saveAndFlush(employee);
-        Long createdNotificationsId = createdNotifications.getId();
-
-        // Get all the employeeList where createdNotifications equals to createdNotificationsId
-        defaultEmployeeShouldBeFound("createdNotificationsId.equals=" + createdNotificationsId);
-
-        // Get all the employeeList where createdNotifications equals to createdNotificationsId + 1
-        defaultEmployeeShouldNotBeFound("createdNotificationsId.equals=" + (createdNotificationsId + 1));
-    }
-
-
-    @Test
-    @Transactional
-    public void getAllEmployeesByReceivedNotificationsIsEqualToSomething() throws Exception {
-        // Initialize the database
-        employeeRepository.saveAndFlush(employee);
-        Notification receivedNotifications = NotificationResourceIT.createEntity(em);
-        em.persist(receivedNotifications);
-        em.flush();
-        employee.addReceivedNotifications(receivedNotifications);
-        employeeRepository.saveAndFlush(employee);
-        Long receivedNotificationsId = receivedNotifications.getId();
-
-        // Get all the employeeList where receivedNotifications equals to receivedNotificationsId
-        defaultEmployeeShouldBeFound("receivedNotificationsId.equals=" + receivedNotificationsId);
-
-        // Get all the employeeList where receivedNotifications equals to receivedNotificationsId + 1
-        defaultEmployeeShouldNotBeFound("receivedNotificationsId.equals=" + (receivedNotificationsId + 1));
     }
 
     /**

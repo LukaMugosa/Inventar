@@ -33,7 +33,6 @@ public class NotificationCriteria implements Serializable, Criteria {
 
     private InstantFilter createdAt;
 
-
     public NotificationCriteria() {
     }
 
@@ -80,6 +79,7 @@ public class NotificationCriteria implements Serializable, Criteria {
     public void setCreatedAt(InstantFilter createdAt) {
         this.createdAt = createdAt;
     }
+
 
     @Override
     public boolean equals(Object o) {

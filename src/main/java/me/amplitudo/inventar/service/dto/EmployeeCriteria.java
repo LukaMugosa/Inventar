@@ -53,10 +53,6 @@ public class EmployeeCriteria implements Serializable, Criteria {
 
     private LongFilter positionId;
 
-    private LongFilter createdNotificationsId;
-
-    private LongFilter receivedNotificationsId;
-
     public EmployeeCriteria() {
     }
 
@@ -75,8 +71,6 @@ public class EmployeeCriteria implements Serializable, Criteria {
         this.equipmentEmployeesId = other.equipmentEmployeesId == null ? null : other.equipmentEmployeesId.copy();
         this.tenantId = other.tenantId == null ? null : other.tenantId.copy();
         this.positionId = other.positionId == null ? null : other.positionId.copy();
-        this.createdNotificationsId = other.createdNotificationsId == null ? null : other.createdNotificationsId.copy();
-        this.receivedNotificationsId = other.receivedNotificationsId == null ? null : other.receivedNotificationsId.copy();
     }
 
     @Override
@@ -196,22 +190,6 @@ public class EmployeeCriteria implements Serializable, Criteria {
         this.positionId = positionId;
     }
 
-    public LongFilter getCreatedNotificationsId() {
-        return createdNotificationsId;
-    }
-
-    public void setCreatedNotificationsId(LongFilter createdNotificationsId) {
-        this.createdNotificationsId = createdNotificationsId;
-    }
-
-    public LongFilter getReceivedNotificationsId() {
-        return receivedNotificationsId;
-    }
-
-    public void setReceivedNotificationsId(LongFilter receivedNotificationsId) {
-        this.receivedNotificationsId = receivedNotificationsId;
-    }
-
 
     @Override
     public boolean equals(Object o) {
@@ -236,9 +214,7 @@ public class EmployeeCriteria implements Serializable, Criteria {
             Objects.equals(equipmentServicingId, that.equipmentServicingId) &&
             Objects.equals(equipmentEmployeesId, that.equipmentEmployeesId) &&
             Objects.equals(tenantId, that.tenantId) &&
-            Objects.equals(positionId, that.positionId) &&
-            Objects.equals(createdNotificationsId, that.createdNotificationsId) &&
-            Objects.equals(receivedNotificationsId, that.receivedNotificationsId);
+            Objects.equals(positionId, that.positionId);
     }
 
     @Override
@@ -257,9 +233,7 @@ public class EmployeeCriteria implements Serializable, Criteria {
         equipmentServicingId,
         equipmentEmployeesId,
         tenantId,
-        positionId,
-        createdNotificationsId,
-        receivedNotificationsId
+        positionId
         );
     }
 
@@ -281,8 +255,6 @@ public class EmployeeCriteria implements Serializable, Criteria {
                 (equipmentEmployeesId != null ? "equipmentEmployeesId=" + equipmentEmployeesId + ", " : "") +
                 (tenantId != null ? "tenantId=" + tenantId + ", " : "") +
                 (positionId != null ? "positionId=" + positionId + ", " : "") +
-                (createdNotificationsId != null ? "createdNotificationsId=" + createdNotificationsId + ", " : "") +
-                (receivedNotificationsId != null ? "receivedNotificationsId=" + receivedNotificationsId + ", " : "") +
             "}";
     }
 

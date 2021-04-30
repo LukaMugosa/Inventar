@@ -83,14 +83,6 @@ public class Employee implements Serializable {
     @JsonIgnoreProperties(value = "employees", allowSetters = true)
     private Position position;
 
-    @OneToMany(mappedBy = "employee")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Notification> createdNotifications = new HashSet<>();
-
-    @OneToMany(mappedBy = "employee")
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    private Set<Notification> receivedNotifications = new HashSet<>();
-
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
@@ -341,56 +333,6 @@ public class Employee implements Serializable {
 
     public void setPosition(Position position) {
         this.position = position;
-    }
-
-    public Set<Notification> getCreatedNotifications() {
-        return createdNotifications;
-    }
-
-    public Employee createdNotifications(Set<Notification> notifications) {
-        this.createdNotifications = notifications;
-        return this;
-    }
-
-    public Employee addCreatedNotifications(Notification notification) {
-        this.createdNotifications.add(notification);
-        notification.setEmployee(this);
-        return this;
-    }
-
-    public Employee removeCreatedNotifications(Notification notification) {
-        this.createdNotifications.remove(notification);
-        notification.setEmployee(null);
-        return this;
-    }
-
-    public void setCreatedNotifications(Set<Notification> notifications) {
-        this.createdNotifications = notifications;
-    }
-
-    public Set<Notification> getReceivedNotifications() {
-        return receivedNotifications;
-    }
-
-    public Employee receivedNotifications(Set<Notification> notifications) {
-        this.receivedNotifications = notifications;
-        return this;
-    }
-
-    public Employee addReceivedNotifications(Notification notification) {
-        this.receivedNotifications.add(notification);
-        notification.setEmployee(this);
-        return this;
-    }
-
-    public Employee removeReceivedNotifications(Notification notification) {
-        this.receivedNotifications.remove(notification);
-        notification.setEmployee(null);
-        return this;
-    }
-
-    public void setReceivedNotifications(Set<Notification> notifications) {
-        this.receivedNotifications = notifications;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

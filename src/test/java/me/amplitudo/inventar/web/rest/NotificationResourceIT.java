@@ -2,7 +2,6 @@ package me.amplitudo.inventar.web.rest;
 
 import me.amplitudo.inventar.InventarApp;
 import me.amplitudo.inventar.domain.Notification;
-import me.amplitudo.inventar.domain.Employee;
 import me.amplitudo.inventar.repository.NotificationRepository;
 import me.amplitudo.inventar.service.NotificationService;
 import me.amplitudo.inventar.service.dto.NotificationDTO;
@@ -438,46 +437,6 @@ public class NotificationResourceIT {
         // Get all the notificationList where createdAt is null
         defaultNotificationShouldNotBeFound("createdAt.specified=false");
     }
-
-    @Test
-    @Transactional
-    public void getAllNotificationsByEmployeeIsEqualToSomething() throws Exception {
-        // Initialize the database
-        notificationRepository.saveAndFlush(notification);
-        Employee employee = EmployeeResourceIT.createEntity(em);
-        em.persist(employee);
-        em.flush();
-        notification.setEmployee(employee);
-        notificationRepository.saveAndFlush(notification);
-        Long employeeId = employee.getId();
-
-        // Get all the notificationList where employee equals to employeeId
-        defaultNotificationShouldBeFound("employeeId.equals=" + employeeId);
-
-        // Get all the notificationList where employee equals to employeeId + 1
-        defaultNotificationShouldNotBeFound("employeeId.equals=" + (employeeId + 1));
-    }
-
-
-    @Test
-    @Transactional
-    public void getAllNotificationsByEmployeeIsEqualToSomething() throws Exception {
-        // Initialize the database
-        notificationRepository.saveAndFlush(notification);
-        Employee employee = EmployeeResourceIT.createEntity(em);
-        em.persist(employee);
-        em.flush();
-        notification.setEmployee(employee);
-        notificationRepository.saveAndFlush(notification);
-        Long employeeId = employee.getId();
-
-        // Get all the notificationList where employee equals to employeeId
-        defaultNotificationShouldBeFound("employeeId.equals=" + employeeId);
-
-        // Get all the notificationList where employee equals to employeeId + 1
-        defaultNotificationShouldNotBeFound("employeeId.equals=" + (employeeId + 1));
-    }
-
     /**
      * Executes the search, and checks that the default entity is returned.
      */

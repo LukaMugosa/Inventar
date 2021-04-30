@@ -81,18 +81,6 @@
       "otherEntityRelationshipName": "employees",
       "relationshipName": "position",
       "otherEntityField": "id"
-    },
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "notification",
-      "otherEntityRelationshipName": "employee",
-      "relationshipName": "createdNotifications"
-    },
-    {
-      "relationshipType": "one-to-many",
-      "otherEntityName": "notification",
-      "otherEntityRelationshipName": "employee",
-      "relationshipName": "receivedNotifications"
     }
   ],
   "changelogDate": "20210417215657",

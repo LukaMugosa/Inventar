@@ -8,7 +8,7 @@ import java.io.Serializable;
  * A DTO for the {@link me.amplitudo.inventar.domain.Notification} entity.
  */
 public class NotificationDTO implements Serializable {
-
+    
     private Long id;
 
     @NotNull
@@ -19,6 +19,7 @@ public class NotificationDTO implements Serializable {
 
     private Instant createdAt;
 
+    
     public Long getId() {
         return id;
     }

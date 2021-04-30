@@ -16,18 +16,6 @@
       "fieldType": "Instant"
     }
   ],
-  "relationships": [
-    {
-      "relationshipType": "many-to-one",
-      "otherEntityName": "employee",
-      "otherEntityRelationshipName": "createdNotifications"
-    },
-    {
-      "relationshipType": "many-to-one",
-      "otherEntityName": "employee",
-      "otherEntityRelationshipName": "receivedNotifications"
-    }
-  ],
   "changelogDate": "20210417220757",
   "entityTableName": "notification",
   "dto": "mapstruct",
